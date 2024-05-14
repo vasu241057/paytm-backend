@@ -11,7 +11,12 @@ app.use(cors());
 app.use("/api/v1", mainRouter);
 
 app.use((err, req, res, next) => {
+  res.json({ vasu: "yo yo" });
   res.status(err.status || 500).json({ error: err.message || "Server Error" });
+});
+
+app.get("/", async (req, res) => {
+  res.json({ vasu: "yo yo" });
 });
 
 app.get("/tasks", async (req, res) => {
